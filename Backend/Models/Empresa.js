@@ -4,7 +4,6 @@ const Schema = mongoose.Schema
 const EmpresaeSchema = Schema(
     {
         nombre:String,
-        apellido:String,
         rut:String,
         password:String,
         correo:String
