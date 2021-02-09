@@ -9,6 +9,7 @@ var Empresa = require('../Models/Empresa');
 function registrar(req,res){
     let empresa= new Empresa()
     empresa.nombre= req.body.nombre
+    empresa.categoria= req.body.categoria
     empresa.rut=req.body.rut
     empresa.password=req.body.password
     empresa.correo=req.body.correo
