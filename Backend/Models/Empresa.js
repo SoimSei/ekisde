@@ -1,7 +1,7 @@
 'use strict'
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const EmpresaeSchema = Schema(
+const EmpresaSchema = Schema(
     {
         nombre:{type:String, require: true},
         categoria:{type:String, require: true},

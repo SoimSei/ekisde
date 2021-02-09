@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 var cliente_routes= require('./Routes/ClienteRoute');
 var empresa_routes= require('./Routes/EmpresaRoute');
 var servicio_routes= require('./Routes/ServicioRoute');
+var agenda_routes = require('./Routes/AgendarRoute');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -18,6 +19,7 @@ app.use(bodyParser.json())
 app.use('/api',cliente_routes);
 app.use('/api',empresa_routes);
 app.use('/api',servicio_routes);
+app.use('/api',agenda_routes);
 
 mongoose.connect('mongodb+srv://kusu:4Q2We9yHOAwzkoDH@practica.uobco.mongodb.net/practica?retryWrites=true&w=majority', (err, res) => {
 

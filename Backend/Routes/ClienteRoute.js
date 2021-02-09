@@ -12,7 +12,8 @@ var api = express.Router();
  
 //  Guardar Persona
 api.post('/cliente', clienteController.registrar);
-api.get('/cliente', clienteController.buscarmail);
+api.get('/cliente/login', clienteController.clientelogin);
+api.get('/cliente',clienteController.buscarmail);
 
-// Exportamos la confi,guración
+// Exportamos la configuración
 module.exports = api;

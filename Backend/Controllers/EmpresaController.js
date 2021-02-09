@@ -31,7 +31,16 @@ function buscarmail(req,res){
     })
 }
 
+function buscarByid(req,res){
+
+    Empresa.findById({_id:req.sub} , (err,empresa) => {
+        if(!empresa) return res.status(404).send({ message: 'Error empresa no existe' })
+        res.status(200).send({ state:'finded' })
+    })
+}
+
 module.exports={
     registrar,
-    buscarmail
+    buscarmail,
+    buscarByid
 };

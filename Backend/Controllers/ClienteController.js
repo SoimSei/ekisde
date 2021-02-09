@@ -3,7 +3,8 @@
 //carga de modelo
 
 var Cliente = require('../Models/Cliente');
-
+//carga de tokenizador(?
+const services =require('../Services/Tokens');
 //registrar cliente
 
 function registrar(req,res){
@@ -23,6 +24,14 @@ function registrar(req,res){
     })
 }
 
+function clientelogin(req,res){
+
+    Cliente.findOne({correo: req.query.correo, password: req.query.password} , (err,cliente) => {
+        if(!cliente) return res.status(404).send({ message: 'Error cliente no existe' })
+        res.status(200).send({ 'mensaje':'correcto', 'usuario':cliente,'token': services.createToken(cliente) })
+    })
+}
+
 function buscarmail(req,res){
     let correoreq= req.query.correo
     Cliente.find({correo: correoreq} , (err,cliente) => {
@@ -31,7 +40,17 @@ function buscarmail(req,res){
     })
 }
 
+function buscarByid(req,res){
+
+    Cliente.findById({_id:req.sub} , (err,cliente) => {
+        if(!cliente) return res.status(404).send({ message: 'Error cliente no existe' })
+        res.status(200).send({ state:'finded' })
+    })
+}
+
 module.exports={
     registrar,
-    buscarmail
+    clientelogin,
+    buscarmail,
+    buscarByid
 };
