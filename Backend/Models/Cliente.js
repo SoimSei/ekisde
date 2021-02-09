@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const ClienteSchema = Schema(
     {
-        nombre:String,
-        apellido:String,
-        rut:String,
-        password:String,
-        correo:String
+        nombre:{type:String, require: true},
+        apellido:{type:String, require: true},
+        rut:{type:String, require: true},
+        password:{type:String, require: true},
+        correo:{type:String, require: true}
     })
 
 module.exports =mongoose.model('cliente', ClienteSchema)

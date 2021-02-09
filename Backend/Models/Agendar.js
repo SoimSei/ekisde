@@ -11,8 +11,8 @@ const AgendarSchema = Schema(
        cliente: { type: Schema.ObjectId, ref: "cliente" },
        empresa: { type: Schema.ObjectId, ref: "empresa" },
        servicio: {type: Schema.ObjectId, ref: "servicio" },
-       horaInicio: Date,
-       horaFin: Date,
+       horaInicio: {type:Date, require: true},
+       horaFin: {type:Date, require: true},
     })
 
 module.exports =mongoose.model('agendar', AgendarSchema)

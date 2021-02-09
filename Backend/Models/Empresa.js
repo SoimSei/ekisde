@@ -3,10 +3,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const EmpresaeSchema = Schema(
     {
-        nombre:String,
-        rut:String,
-        password:String,
-        correo:String
+        nombre:{type:String, require: true},
+        rut:{type:String, require: true},
+        password:{type:String, require: true},
+        correo:{type:String, require: true}
     })
 
 module.exports =mongoose.model('empresa', EmpresaSchema)
