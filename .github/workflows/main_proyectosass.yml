@@ -9,6 +9,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_PACKAGE_PATH: 'build'  # set this to the path to your web app project, defaults to the repository root
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,9 +30,9 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
-    - name: add build/process.json
+    - name: add process.json
       run: |
-        echo '{ script: "serve", env: { PM2_SERVE_SPA: "true", PM2_SERVE_HOMEPAGE: "/index.html" } }' > build/process.json
+        echo '{ script: "serve", env: { PM2_SERVE_SPA: "true", PM2_SERVE_HOMEPAGE: "/index.html" } }' >> build/process.json
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
