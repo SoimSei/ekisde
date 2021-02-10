@@ -3,8 +3,7 @@
 const jwt = require('jwt-simple')
 const moment = require('moment')
 require('dotenv').config()
-const cliente = require('../Controllers/ClienteController')
-const empresa =require('../Controllers/EmpresaController')
+
 
 function genericAuth(req, res, next) {
     console.log(req)
@@ -45,7 +44,7 @@ function clienteAuth(req, res, next) {
     try {
 
         const payload = jwt.decode(token, process.env.SECRET_TOKEN)
-        if(cliente.buscarByid(payload).status!='200'){
+        if(payload.type!='cliente'){
             return res.status(401).send({ message: 'Esta area es para clientes' })
         }
 
@@ -74,7 +73,7 @@ function empresaAuth(req, res, next) {
     try {
 
         const payload = jwt.decode(token, process.env.SECRET_TOKEN)
-        if(empresa.buscarByid(payload).status!='200'){
+        if(payload.type!='empresa'){
             return res.status(401).send({ message: 'Esta area es para empresas' })
         }
 

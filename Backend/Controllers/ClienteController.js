@@ -28,7 +28,7 @@ function clientelogin(req,res){
 
     Cliente.findOne({correo: req.query.correo, password: req.query.password} , (err,cliente) => {
         if(!cliente) return res.status(404).send({ message: 'Error cliente no existe' })
-        res.status(200).send({ 'mensaje':'correcto', 'usuario':cliente,'token': services.createToken(cliente) })
+        res.status(200).send({ 'mensaje':'correcto', 'usuario':cliente,'token': services.createTokenCliente(cliente) })
     })
 }
 
