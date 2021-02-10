@@ -1,0 +1,87 @@
+.login {
+  position: fixed;
+  top: 300px;
+  left: 200px;
+  width: 35rem;
+  height: 600px;
+}
+.login-form {
+  min-height: 10vh;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.login-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border: 2px solid rgb(65, 65, 65);
+  padding: 0.5em;
+  transition: all 0.3s ease;
+  &:hover {
+    background: rgb(65, 65, 65);
+    color: white;
+  }
+}
+.sign-up-button {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border: 2px solid rgb(65, 65, 65);
+  padding: 0.5em;
+  margin: 15px;
+  transition: all 0.3s ease;
+  &:hover {
+    background: rgb(65, 65, 65);
+    color: white;
+  }
+}
+
+$tundora: #4a4a4a;
+$dustyGray: #9b9b9b;
+$gallery: #f0f0f0;
+.label-login {
+  display: block;
+  letter-spacing: 4px;
+  padding-top: 30px;
+  text-align: center;
+  .label-text {
+    color: $dustyGray;
+    cursor: text;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    transform: translateY(-34px);
+    transition: all 0.3s;
+  }
+  input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid $tundora;
+    color: black;
+    font-size: 36px;
+    letter-spacing: -1px;
+    outline: 0;
+    padding: 5px 20px;
+    text-align: center;
+    transition: all 0.3s;
+
+    &:focus {
+      max-width: 100%;
+      width: 400px;
+      & + .label-text {
+        color: black;
+        font-size: 13px;
+        transform: translateY(-74px);
+      }
+    }
+    &:valid + .label-text {
+      font-size: 13px;
+      transform: translateY(-74px);
+    }
+  }
+}

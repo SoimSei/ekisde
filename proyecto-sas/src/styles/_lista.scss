@@ -1,0 +1,61 @@
+.lista {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  width: 35rem;
+  height: 600px;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  border: 1px solid #000000;
+
+  border-radius: 15px;
+
+  box-shadow: 5px 5px 5px rgb(122, 122, 122);
+  overflow: auto;
+  h2 {
+    padding: 2rem;
+  }
+}
+.lista-empresa {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem 1rem 2rem;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #dddbda;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  img {
+    width: 30%;
+  }
+  &:hover {
+    background-image: linear-gradient(
+      to top,
+      #dad4ec 0%,
+      #dad4ec 1%,
+      #f3e7e9 100%
+    );
+  }
+}
+.empresa-desc {
+  padding-left: 1rem;
+  h3 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 0.7rem;
+  }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+*::-webkit-scrollbar {
+  width: 5px;
+}
