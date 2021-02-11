@@ -21,17 +21,52 @@ function agendar(req,res){
     })
 }
 
+function modificarbyCliente(req,res){    
+    Agenda.findOneAndUpdate({_id:req.params._id},{
+    cliente=req.body.cliente,
+    empresa=req.body.empresa,
+    servicio=req.body.servicio,
+    horaInicio=req.body.horaInicio,
+    horaFin=req.body.horaFin
+    },function(err,ress){
+        if(err){
+            res.status(418).send(err)
+        }
+        else{
+            res.status(200).send({mensaje:"Modifico"})
+        }
+    })
+
+}
+
+
+function modificarbyEmpresa(req,res){    
+    Agenda.findOneAndUpdate({_id:req.params._id},{
+    cliente=req.body.cliente,
+    empresa=req.body.empresa,
+    servicio=req.body.servicio,
+    horaInicio=req.body.horaInicio,
+    horaFin=req.body.horaFin
+    },function(err,ress){
+        if(err){
+            res.status(418).send(err)
+        }
+        else{
+            res.status(200).send({mensaje:"Modifico"})
+        }
+    })
+
+}
+
 function buscarbyCliente(req,res){
-    let cliente= req.query.clienteId
-    Agenda.find({cliente: clienteId} , (err,agenda) => {
+    Agenda.find({cliente: req.query.cliente} , (err,agenda) => {
         if(!agenda) return res.status(404).send({ message: 'Error agenda no existe' })
         res.status(200).send({ agenda })
     })
 }
 
 function buscarbyEmpresa(req,res){
-    let empresa= req.query.empresaId
-    Agenda.find({empresa: empresaId} , (err,agenda) => {
+    Agenda.find({empresa: req.query.empresa} , (err,agenda) => {
         if(!agenda) return res.status(404).send({ message: 'Error agenda no existe' })
         res.status(200).send({ agenda })
     })
@@ -44,9 +79,28 @@ function listar(req,res){
     })
 }
 
+function cancelarbyCliente(req,res){
+    Agenda.findOneAndDelete({cliente: req.query.cliente},(err,agenda)=>{
+        if(!agenda) return res.status(404).send({ message: 'Error agenda no existe' })
+        res.status(200).send({ 'estado':'reserva eliminada' })
+    })
+}
+
+function cancelarbyEmpresa(req,res){
+    Agenda.findOneAndDelete({cliente: req.query.empresa},(err,agenda)=>{
+        if(!agenda) return res.status(404).send({ message: 'Error agenda no existe' })
+        res.status(200).send({ 'estado':'reserva eliminada' })
+    })
+}
+
+
 module.exports={
     agendar,
     buscarbyCliente,
     buscarbyEmpresa,
-    listar
+    listar,
+    cancelarbyCliente,
+    cancelarbyEmpresa,
+    modificarbyCliente,
+    modificarbyEmpresa
 }

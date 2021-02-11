@@ -31,6 +31,7 @@ function createTokenEmpresa(user)
 
 
 module.exports = {
-    createTokenCliente
+    createTokenCliente,
+    createTokenEmpresa
     
 };

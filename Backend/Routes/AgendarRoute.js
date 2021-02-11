@@ -11,11 +11,15 @@ const auth=require('../Middle/auth');
 // Llamamos al router
 var api = express.Router();
  
-//  Guardar Persona
+
 api.post('/agenda',auth.clienteAuth, agendaController.agendar);
 api.get('/agenda', agendaController.listar);
 api.get('/agenda/byEmpresa',agendaController.buscarbyEmpresa);
 api.get('/agenda/byCliente',agendaController.buscarbyCliente);
+api.delete('/agenda/byCliente',agendaController.cancelarbyCliente);
+api.delete('/agenda/byEmpresa',agendaController.cancelarbyEmpresa);
+api.put('/agenda/byCliente/:id',agendaController.modificarbyCliente);
+api.put('/agenda/byEmpresa/:id',agendaController.modificarbyEmpresa);
 
-// Exportamos la confi,guración
+// Exportamos la configuración
 module.exports = api;
